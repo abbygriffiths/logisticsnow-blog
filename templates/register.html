@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form id="registerForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" required><br>
+
+        <input type="button" value="Register" onclick="submitRegister()">
+    </form>
+
+    <script>
+        function submitRegister() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm_password').value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/api/register', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 201) {
+                        console.log(xhr.responseText);
+                        // Handle success
+                    } else {
+                        console.error(xhr.statusText);
+                        // Handle error
+                    }
+                }
+            };
+            
+            var data = JSON.stringify({ username: username, password: password, confirm_password: confirmPassword });
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>
