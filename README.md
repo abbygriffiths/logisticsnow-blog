@@ -22,6 +22,7 @@ DB_PORT=`postgres_host_port`
 JWT_SECRET_KEY=`a secret key for signing jwt`
 
 ### Database Schema
+```
 posts_development=# \dt
          List of relations
  Schema | Name | Type  |   Owner
@@ -52,3 +53,4 @@ posts_development=# \d user
 Indexes:
     "user_pkey" PRIMARY KEY, btree (id)
     "user_username_key" UNIQUE CONSTRAINT, btree (username)
+```
