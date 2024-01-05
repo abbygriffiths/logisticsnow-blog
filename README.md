@@ -1,6 +1,26 @@
 # LogisticsNow Backend Development Assignment
 A simple CRUD application to store blogs with JWT authorization. Built using Flask, SQLAlchemy, PostgresQL, and flask_jwt_extended.
 
+### Set-up and Running
+- To set up the environment, start a new Conda environment using `conda env -n 'env_name' create -f environment.yml` (Replace env_name with an environment name of your choice)
+- Activate environment using `conda activate 'env_name'`
+- Ensure Postgres server is running on port 5432
+- Ensure values are present in `.env` file according to section Environment Variables.
+- Run server using `python api.py`
+
+
+### Environment Variables
+Create a .env file in the root directory of the project. In it, ensure the following key value pairs are present.
+Values used during development are *NOT* being provided for security reasons.
+
+DB_USERNAME=`postgres_username`
+DB_PASSWD=`postgres_password`
+DB_NAME=`postgres_db_name`
+DB_HOST=`postgres_host_url`
+DB_PORT=`postgres_host_port`
+
+JWT_SECRET_KEY=`a secret key for signing jwt`
+
 ### Database Schema
 posts_development=# \dt
          List of relations
